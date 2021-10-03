@@ -1,18 +1,13 @@
 files.c = main.cpp
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 
-NAME = megaphone
+NAME = phonebook
 
 all : $(NAME)
 
 $(NAME) : $(files.c)
 		clang++ $(CFLAGS) $(files.c) -o $(NAME)
-
-
-%.o : %.c
-		@gcc $(CFLAGS)  -c  $<  -o $@
-		@echo  "\033[36m$<\033[0m \033[35m is compiled!\033[0m" 
 
 
 fclean :
@@ -22,4 +17,4 @@ fclean :
 re	:  fclean all	
 
 
-.PHONY : all clean  fclean
+.PHONY : all  fclean

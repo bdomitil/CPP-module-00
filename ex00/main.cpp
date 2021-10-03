@@ -6,7 +6,7 @@
 /*   By: bdomitil <bdomitil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 00:23:40 by bdomitil          #+#    #+#             */
-/*   Updated: 2021/10/03 00:39:20 by bdomitil         ###   ########.fr       */
+/*   Updated: 2021/10/03 18:32:59 by bdomitil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int main(int argc, char **argv)
 		for (int i = 1; i < argc; i++)
 		{
 			full_str += argv[i];
-			i++;
 		}
 		for (int i = 0; full_str[i] != '\0'; i++)
 		{
