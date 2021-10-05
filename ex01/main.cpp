@@ -6,12 +6,12 @@
 /*   By: bdomitil <bdomitil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 00:49:44 by bdomitil          #+#    #+#             */
-/*   Updated: 2021/10/03 19:39:25 by bdomitil         ###   ########.fr       */
+/*   Updated: 2021/10/05 21:31:31 by bdomitil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "contact.hpp"
+#include "phonebook.hpp"
 
 std::string get_command ()
 {
@@ -33,24 +33,35 @@ com_type get_type(string command)
 	return(undef_);
 }
 
-void add_contact (contact & contact)
+void phonebook :: increase_cont_num()
+{
+	_cont_num++;
+	if (_cont_num == 8)
+ 		_cont_num = 0;
+}
+
+
+void phonebook :: add_contact ()
 {
 	string tmp;
+	phonebook phonebook;
+
 	std::cout << "please input first name >>";
 	std::cin >> tmp;
-	contact.set_firstnama(tmp);
+	_contacts[_cont_num].set_firstnama(tmp);
 	std::cout << "please input last name >>";
 	std::cin >> tmp;
-	contact.set_lastnama(tmp);
+	_contacts[_cont_num].set_lastnama(tmp);
 	std::cout << "please input nickname >>";
 	std::cin >> tmp;
-	contact.set_nicknama(tmp);
+	_contacts[_cont_num].set_nicknama(tmp);
 	std::cout << "please input phonenumber >>";
 	std::cin >> tmp;
-	contact.set_phonenumber(tmp);
+	_contacts[_cont_num].set_phonenumber(tmp);
 	std::cout << "please input darkest sercret >>";
 	std::cin >> tmp;
-	contact.set_darkestSecret(tmp);
+	_contacts[_cont_num].set_darkestSecret(tmp);
+	increase_cont_num();
 }
 
 string fixed_len_str(string str)
@@ -63,28 +74,33 @@ string fixed_len_str(string str)
 	return (str);
 }
 
-void search_contact(contact contacts[], int last_cont)
+void phonebook :: search_contact()
 {
-	for (int i = 0; i < last_cont; i++)
+	if (_cont_num == 0)
+	{
+		std::cout << "there is nothing to list, add some contacts first" << std::endl;
+		return ;
+	}
+	for (int i = 0; i < this->_cont_num ; i++)
 	{
 		std::cout.width(10);
-		std::cout << i << "|" << fixed_len_str(contacts[i].get_firstname())  << \
-									"|" << fixed_len_str(contacts[i].get_lastname()) << \
-									"|" << fixed_len_str(contacts[i].get_nickname()) << std::endl;
+		std::cout << i << "|" << fixed_len_str(_contacts[i].get_firstname())  << \
+							"|" << fixed_len_str(_contacts[i].get_lastname()) << \
+							"|" << fixed_len_str(_contacts[i].get_nickname()) << std::endl;
 	}
 	std::cout << "Type an index of recording u want to list >> " ;
 	int index  = -1;
 	std::cin >> index;
-	if (index < 0 || index > 7 || index >= last_cont )
+	if (index < 0 || index > 7 || index >= _cont_num )
 		std::cout << "index is out of range" << std::endl;
 	else
 		{
 			std::cout.width (10);
-			std::cout << index << "|" << contacts[index].get_firstname()  << \
-									"|" << contacts[index].get_lastname() << \
-									"|" << contacts[index].get_nickname() <<  \
-									"|" << contacts[index].get_phonenumber() << \
-									"|" << contacts[index].get_darkestSecret() << std::endl;
+			std::cout << index << "|" << _contacts[index].get_firstname()  << \
+									"|" << _contacts[index].get_lastname() << \
+									"|" << _contacts[index].get_nickname() <<  \
+									"|" << _contacts[index].get_phonenumber() << \
+									"|" << _contacts[index].get_darkestSecret() << std::endl;
 
 		}
 }
@@ -92,7 +108,7 @@ void search_contact(contact contacts[], int last_cont)
 int main()
 {
 	string command;
-	contact contacts[8];
+	phonebook phonebook;
 	int cont_num = 0;
 
 	while (command != "EXIT")
@@ -104,13 +120,13 @@ int main()
 				exit(0);
 			case add_:
 			{
-				add_contact(contacts[cont_num]);
+				phonebook.add_contact();
 				cont_num++;
 				continue ;
 			}
 			case search_ :{
 				
-				search_contact(contacts, cont_num);
+				phonebook.search_contact();
 				continue ;
 			}
 			default :

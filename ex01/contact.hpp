@@ -6,7 +6,7 @@
 /*   By: bdomitil <bdomitil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 00:42:50 by bdomitil          #+#    #+#             */
-/*   Updated: 2021/10/03 17:28:56 by bdomitil         ###   ########.fr       */
+/*   Updated: 2021/10/05 21:14:46 by bdomitil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,5 @@ public :
 	string get_phonenumber(){return this-> _phone_number;}
 	void set_darkestSecret(string _darkest_secret){this->_darkest_secret = _darkest_secret;}
 	string get_darkestSecret(){return this-> _darkest_secret;}
-
 };
+

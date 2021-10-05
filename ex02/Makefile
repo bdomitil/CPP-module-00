@@ -1,8 +1,8 @@
-files.c = main.cpp
+files.c = Account.cpp
 
-CFLAGS =  -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 
-NAME = phonebook
+NAME = account
 
 all : $(NAME)
 
