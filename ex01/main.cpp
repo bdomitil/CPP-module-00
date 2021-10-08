@@ -6,7 +6,7 @@
 /*   By: bdomitil <bdomitil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 00:49:44 by bdomitil          #+#    #+#             */
-/*   Updated: 2021/10/05 21:31:31 by bdomitil         ###   ########.fr       */
+/*   Updated: 2021/10/08 16:52:26 by bdomitil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 std::string get_command ()
 {
 	string str;
-	std::cout << "input a command >> ";
+	std::cout << "input a command >> " << std::endl;
 	std::cin >> str;
 
 	return (str);
@@ -89,7 +89,7 @@ void phonebook :: search_contact()
 							"|" << fixed_len_str(_contacts[i].get_nickname()) << std::endl;
 	}
 	std::cout << "Type an index of recording u want to list >> " ;
-	int index  = -1;
+	int		index;
 	std::cin >> index;
 	if (index < 0 || index > 7 || index >= _cont_num )
 		std::cout << "index is out of range" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: bdomitil <bdomitil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 00:23:40 by bdomitil          #+#    #+#             */
-/*   Updated: 2021/10/05 18:29:24 by bdomitil         ###   ########.fr       */
+/*   Updated: 2021/10/08 16:52:59 by bdomitil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main(int argc, char **argv)
 		std::string str =  get_str();
 		for (int i = 0; str[i] != '\0'; i++)
 		{
-			if (str[i] > 98 && str[i] < 123)
+			if (str[i] > 96 && str[i] < 123)
 				str[i] -= 32;
 		}
 		std::cout << str;
@@ -40,7 +40,7 @@ int main(int argc, char **argv)
 		}
 		for (int i = 0; full_str[i] != '\0'; i++)
 		{
-			if (full_str[i] > 98 && full_str[i] < 123)
+			if (full_str[i] > 96 && full_str[i] < 123)
 				full_str[i] -= 32;
 		}
 		std::cout << full_str;

@@ -6,11 +6,12 @@
 /*   By: bdomitil <bdomitil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 00:42:50 by bdomitil          #+#    #+#             */
-/*   Updated: 2021/10/05 21:14:46 by bdomitil         ###   ########.fr       */
+/*   Updated: 2021/10/08 16:50:26 by bdomitil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream> 
+#include <stdio.h>
 
 typedef std::string string;
 
